@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Header.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
+import iconLogo from '../assets/favicon.png';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ const Header = () => {
         <header className="header">
             <div className="header-container">
                 <div className="logo">
-                    <img className="favicon" src="./src/assets/favicon.png" alt="Logo" />
+                    <img className="favicon" src={iconLogo} alt="Logo" />
                     <a href="#">CliffBots IA</a>
                 </div>
                 <nav className="desktop-nav">
