@@ -1,0 +1,128 @@
+.community-section {
+    padding: 6rem 2rem;
+    background-color: var(--background-black);
+}
+
+.community-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.community-header {
+    margin-bottom: 4rem;
+}
+
+.community-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 1rem;
+}
+
+.community-subtitle {
+    font-size: 1.125rem;
+    color: #B3B3B3;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.community-card {
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--terciary-blue);
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.community-icon {
+    font-size: 3.5rem;
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-violet));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.community-text {
+    color: var(--light-color-white);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.community-cta {
+    color: var(--primary-blue);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.community-card:hover .community-cta {
+    color: var(--light-blue-hover);
+}
+
+/* --- Newsletter Section --- */
+.newsletter-section {
+    border-top: 1px solid var(--terciary-blue);
+    padding-top: 4rem;
+}
+
+.newsletter-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--terciary-blue);
+    color: var(--light-color-white);
+    padding: 0.9rem 1.2rem;
+    border-radius: 8px;
+    flex-grow: 1;
+    min-width: 250px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-input::placeholder {
+    color: #888;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+.newsletter-btn {
+    padding: 0.9rem 2rem;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 1024px) {
+    .community-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto 4rem auto;
+    }
+}
