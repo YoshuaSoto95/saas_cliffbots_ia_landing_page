@@ -1,0 +1,54 @@
+/* Definición de la paleta de colores y fuentes globales */
+:root {
+  --light-color-white: #fff;
+  --light-blue-hover: #7d79ff;
+  --primary-blue: #0f07f1;
+  --secondary-blue: #0f09ad;
+  --terciary-blue: #03004d;
+
+  --primary-violet: #8f11c1;
+  --secondary-violet: #59027c;
+  --background-black: #060008;
+}
+
+/* Reseteo básico y estilos generales del cuerpo */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  /* Te sugiero una fuente moderna como Poppins */
+  background-color: var(--background-black);
+  color: var(--light-color-white);
+  overflow-x: hidden;
+  /* Evita el scroll horizontal */
+}
+
+.section {
+  height: 100vh;
+}
+
+/* Estilo base para los botones para reutilización */
+.btn {
+  background-image: linear-gradient(to right, var(--primary-blue), var(--primary-violet));
+  color: var(--light-color-white);
+  border: none;
+  padding: 0.7rem 2.5rem;
+  /* Ligeramente más compacto */
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--light-blue-hover);
+  background-image: none;
+  /* Quitamos el gradiente en el hover para un efecto limpio */
+  transform: translateY(-2px);
+  /* Efecto sutil al pasar el cursor */
+  box-shadow: 0 4px 15px rgba(125, 121, 255, 0.4);
+}

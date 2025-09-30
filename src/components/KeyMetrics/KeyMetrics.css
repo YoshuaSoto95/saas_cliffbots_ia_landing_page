@@ -1,0 +1,89 @@
+.metrics-section {
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.metrics-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.metrics-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+.metrics-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.metric-card {
+    /* --- Estilo Glassmorphism --- */
+    background: rgba(23, 17, 68, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--terciary-blue);
+    border-radius: 12px;
+    padding: 2.5rem 1.5rem;
+    position: relative;
+    transition: all 0.3s ease-out;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-blue);
+    /* --- Glow más intenso en hover --- */
+    box-shadow: 0 0 15px rgba(15, 7, 241, 0.3), 0 0 30px rgba(143, 17, 193, 0.2);
+}
+
+.metric-number {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+/* Reutilizamos la clase de gradiente animado */
+.metric-number.animated-gradient-text {
+    display: inline-block;
+    /* Necesario para que el gradiente se aplique correctamente */
+}
+
+.metric-label {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 1024px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .metrics-section {
+        padding: 4rem 1rem;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .metric-card {
+        padding: 2rem 1rem;
+    }
+}

@@ -1,0 +1,175 @@
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Efecto de cristal moderno */
+    background-color: rgba(6, 0, 8, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Para Safari */
+
+    padding: 0.8rem 2rem;
+    /* REDUCIDO: Padding vertical más pequeño */
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo a {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-violet), var(--primary-blue));
+    background-size: 200% auto;
+    color: #000;
+    /* Color de fallback */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 4s linear infinite;
+}
+
+.favicon {
+    width: 40px;
+    height: 32px;
+}
+
+.desktop-nav {
+    display: none;
+    gap: 2.5rem;
+    /* Espaciado entre elementos del menú */
+}
+
+.desktop-nav a {
+    color: var(--light-color-white);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.desktop-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    /* Ajusta la posición de la línea */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease;
+}
+
+.desktop-nav a:hover {
+    color: var(--primary-blue);
+    transform: scale(1.05);
+}
+
+.desktop-nav a:hover::after {
+    width: 100%;
+}
+
+.actions {
+    display: none;
+}
+
+.mobile-nav-toggle {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1002;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.mobile-nav-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* --- ACTUALIZADO: Estilo del menú para que sea una barra lateral --- */
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Posicionamiento */
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+
+    /* Estilo visual */
+    background-color: rgba(6, 0, 8, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 2rem;
+    z-index: 1001;
+}
+
+
+.mobile-nav nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    text-align: center;
+}
+
+.mobile-nav a {
+    color: var(--light-color-white);
+    text-decoration: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.get-started-btn-mobile {
+    margin-top: 2.5rem;
+    width: 80%;
+}
+
+@media (min-width: 1024px) {
+
+    .desktop-nav,
+    .actions {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-nav-toggle {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+}

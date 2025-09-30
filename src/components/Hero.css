@@ -1,0 +1,275 @@
+/* --- Sección Hero --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 800px;
+    padding: 12rem 4rem 4rem 4rem;
+    /* Padding superior para no quedar debajo del header */
+    position: relative;
+    overflow: hidden;
+    /* Muy importante para contener las burbujas */
+    background-color: var(--background-black);
+}
+
+.hero-container {
+    max-width: 1200px;
+    width: 100%;
+    z-index: 2;
+    /* Para que el contenido esté sobre el fondo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+}
+
+/* --- Lado Izquierdo (Texto y CTAs) --- */
+.hero-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    /* Tamaño de fuente adaptable */
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.text-span {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #fff;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* Reutilizamos la animación del logo para el H1 */
+.animated-gradient-text {
+    background: linear-gradient(to right, var(--primary-blue), var(--primary-violet), var(--primary-blue));
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 4s linear infinite;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--light-color-white-70, rgba(255, 255, 255, 0.7));
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.hero-cta-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero-cta-buttons button {
+    padding: 0.9rem 4rem;
+}
+
+/* Estilo para el botón secundario */
+.btn.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--terciary-blue);
+    transition: all 0.3s ease;
+}
+
+.btn.btn-secondary:hover {
+    background-color: var(--terciary-blue);
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: none;
+}
+
+/* --- Lado Derecho (Imagen) --- */
+.hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-image {
+    width: 100%;
+    max-width: 950px;
+    border-radius: 15px;
+    border: 1px solid var(--terciary-blue);
+    box-shadow: 0 20px 50px rgba(143, 17, 193, 0.2);
+    animation: floating-image 6s ease-in-out infinite;
+}
+
+@keyframes floating-image {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* --- Sección de Confianza (Logos) --- */
+.hero-trust {
+    margin-top: 5rem;
+    text-align: center;
+    width: 100%;
+}
+
+.trust-text {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.trust-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.trust-logos img {
+    height: 25px;
+    filter: grayscale(100%) opacity(0.5);
+    transition: all 0.3s ease;
+}
+
+.trust-logos img:hover {
+    filter: grayscale(0%) opacity(1);
+}
+
+/* --- Fondo de Burbujas Animadas --- */
+.bubbles-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+}
+
+.b1 {
+    width: 400px;
+    height: 400px;
+    top: 10%;
+    left: 15%;
+    background: radial-gradient(circle, var(--primary-blue), transparent 60%);
+    animation: float-bubble 25s infinite;
+}
+
+.b2 {
+    width: 300px;
+    height: 300px;
+    top: 60%;
+    left: 5%;
+    background: radial-gradient(circle, var(--primary-violet), transparent 70%);
+    animation: float-bubble 30s infinite reverse;
+}
+
+.b3 {
+    width: 350px;
+    height: 350px;
+    top: 20%;
+    right: 10%;
+    background: radial-gradient(circle, var(--secondary-blue), transparent 65%);
+    animation: float-bubble 20s infinite;
+}
+
+.b4 {
+    width: 250px;
+    height: 250px;
+    bottom: 5%;
+    right: 25%;
+    background: radial-gradient(circle, var(--secondary-violet), transparent 70%);
+    animation: float-bubble 35s infinite reverse;
+}
+
+@keyframes float-bubble {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(20px, 40px) scale(1.1);
+    }
+
+    50% {
+        transform: translate(-30px, -10px) scale(0.9);
+    }
+
+    75% {
+        transform: translate(10px, -40px) scale(1.05);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 1024px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left {
+        order: 1;
+        /* El texto va después de la imagen en móvil */
+        align-items: center;
+    }
+
+    .hero-right {
+        order: 2;
+    }
+
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-cta-buttons {
+        flex-direction: column;
+    }
+
+    .hero-cta-buttons button {
+        padding: 0.8rem 6rem;
+    }
+
+    .hero-trust {
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .trust-logos {
+        gap: 2rem;
+    }
+}

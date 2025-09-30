@@ -1,0 +1,170 @@
+/* --- Keyframes para el pulso del botón CTA --- */
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0 rgba(143, 17, 193, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(143, 17, 193, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(143, 17, 193, 0);
+    }
+}
+
+.use-cases-section {
+    padding: 6rem 2rem;
+    background-color: #0B0B0F;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Burbujas de fondo sutiles --- */
+.diffuse-bubble {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.db1 {
+    width: 500px;
+    height: 500px;
+    top: 10%;
+    left: -10%;
+    background-color: var(--primary-violet);
+}
+
+.db2 {
+    width: 400px;
+    height: 400px;
+    bottom: 5%;
+    right: -5%;
+    background-color: var(--primary-blue);
+}
+
+.use-cases-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.use-cases-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.use-cases-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 1rem;
+}
+
+.use-cases-subtitle {
+    font-size: 1.125rem;
+    color: #B3B3B3;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.case-card {
+    /* Estilo Glassmorphism */
+    background: rgba(26, 26, 34, 0.4);
+    /* #1A1A22 con 40% de opacidad */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    /* Clave para el borde brillante */
+    transition: transform 0.3s ease-out;
+    border: 1px solid var(--terciary-blue);
+}
+
+/* Pseudo-elemento para el borde brillante que aparece en hover */
+.case-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    /* Grosor del borde */
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-violet));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.case-card:hover {
+    transform: scale(1.05);
+}
+
+.case-card:hover::before {
+    opacity: 1;
+}
+
+.case-icon {
+    font-size: 2.5rem;
+    color: var(--primary-violet);
+    margin-bottom: 1.5rem;
+}
+
+.case-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--light-color-white);
+}
+
+.case-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.case-bullets li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #B3B3B3;
+    margin-bottom: 0.75rem;
+}
+
+.bullet-icon {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    /* Evita que el ícono se encoja */
+}
+
+.cases-cta-container {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.cases-cta:hover {
+    /* Gradiente invertido y animación de pulso */
+    background-image: linear-gradient(to right, var(--primary-violet), var(--primary-blue));
+    animation: pulse-animation 1.5s infinite;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .use-cases-section {
+        padding: 4rem 1rem;
+    }
+
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+}

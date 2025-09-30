@@ -1,0 +1,140 @@
+/* ... (estilos de la sección y header se mantienen igual) ... */
+
+.testimonials-section {
+    padding: 6rem 2rem;
+    background: var(--background-black);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(3, 0, 77, 0.3), transparent 70%);
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonials-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.testimonials-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 1rem;
+}
+
+.testimonials-subtitle {
+    font-size: 1.125rem;
+    color: #B3B3B3;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Estilos para el contenedor de Swiper --- */
+.mySwiper {
+    padding-bottom: 4rem;
+    /* Espacio para la paginación */
+}
+
+/* Se quita .testimonials-grid y se estiliza la card directamente */
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--terciary-blue);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Muy importante para que las tarjetas tengan la misma altura */
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 30px rgba(15, 7, 241, 0.3);
+}
+
+.stars-container {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.star-icon {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.star-icon.filled {
+    color: #facc15;
+}
+
+.testimonial-quote {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--light-color-white);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    flex-grow: 1;
+}
+
+/* --- NUEVO: Estilos para el perfil del autor --- */
+.author-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+    /* Empuja el perfil al final de la tarjeta */
+}
+
+.author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--terciary-blue);
+}
+
+.author-details {
+    text-align: left;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    color: var(--light-color-white);
+}
+
+.author-title {
+    font-size: 0.9rem;
+    color: #B3B3B3;
+}
+
+/* --- NUEVO: Estilos para la paginación de Swiper --- */
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+    width: 10px;
+    height: 10px;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--primary-blue);
+    width: 25px;
+    border-radius: 5px;
+}
