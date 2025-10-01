@@ -153,6 +153,7 @@
 }
 
 .get-started-btn-mobile {
+    text-align: center;
     margin-top: 2.5rem;
     width: 80%;
 }

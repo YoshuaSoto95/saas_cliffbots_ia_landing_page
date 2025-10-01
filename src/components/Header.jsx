@@ -56,7 +56,11 @@ const Header = () => {
                         exit="exit"
                     >
                         <nav>
-                            {/* ... (los otros links del menú móvil) ... */}
+                            <Link to="features" smooth={true} duration={500} offset={-80} onClick={closeMenu}>Features</Link>
+                            <Link to="pricing" smooth={true} duration={500} offset={-80} onClick={closeMenu}>Pricing</Link>
+                            <Link to="comments" smooth={true} duration={500} offset={-80} onClick={closeMenu}>Comments</Link>
+                            <Link to="community" smooth={true} duration={500} offset={-80} onClick={closeMenu}>Community</Link>
+                            <Link to="faq" smooth={true} duration={500} offset={-80} onClick={closeMenu}>FAQ</Link>
                         </nav>
                         {/* 3. Reemplazar también el botón del menú móvil */}
                         <Link
