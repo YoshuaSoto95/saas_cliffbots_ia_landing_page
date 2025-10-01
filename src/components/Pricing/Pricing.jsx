@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import './Pricing.css';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'; // Íconos para las features
 
-const Pricing = () => {
+const Pricing = ({ openModal }) => {
     const controls = useAnimation();
     const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -24,7 +24,7 @@ const Pricing = () => {
                 { text: "Basic AI responses", available: true },
                 { text: "No analytics", available: false },
             ],
-            buttonText: "Get Started",
+            buttonText: "Choose Starter",
             isPopular: false,
         },
         {
@@ -48,7 +48,7 @@ const Pricing = () => {
                 { text: "Custom-trained AI", available: true },
                 { text: "Advanced analytics + support", available: true },
             ],
-            buttonText: "Contact Us",
+            buttonText: "Choose Enterprise",
             isPopular: false,
         }
     ];
@@ -69,7 +69,7 @@ const Pricing = () => {
     };
 
     return (
-        <section className="pricing-section">
+        <section className="pricing-section" id="pricing">
             <motion.div
                 className="pricing-container"
                 ref={ref}
@@ -112,7 +112,12 @@ const Pricing = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <button className="btn pricing-btn">{p.buttonText}</button>
+                            <button
+                                className="btn pricing-btn"
+                                onClick={() => openModal(p)} // 'p' es el objeto del plan actual
+                            >
+                                {p.buttonText}
+                            </button>
                         </motion.div>
                     ))}
                 </div>

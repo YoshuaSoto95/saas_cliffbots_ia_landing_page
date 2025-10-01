@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-scroll';
 import iconLogo from '../assets/favicon.png';
+import { Link } from 'react-scroll';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    // ... (el resto de la lógica se mantiene igual) ...
+    const toggleMenu = () => setIsOpen(!isOpen);
+    const closeMenu = () => setIsOpen(false);
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
-
-    const closeMenu = () => {
-        setIsOpen(false);
-    };
-
-    // ACTUALIZADO: Variantes para animación desde la derecha
     const mobileMenuVariants = {
         hidden: { x: "100%" },
         visible: { x: 0, transition: { type: "tween", ease: "circOut" } },
@@ -30,14 +24,23 @@ const Header = () => {
                     <a href="#">CliffBots IA</a>
                 </div>
                 <nav className="desktop-nav">
-                    <Link to="features" smooth={true} duration={500} onClick={closeMenu}>Features</Link>
-                    <Link to="comments" smooth={true} duration={500} onClick={closeMenu}>Comments</Link>
-                    <Link to="pricing" smooth={true} duration={500} onClick={closeMenu}>Pricing</Link>
-                    <Link to="community" smooth={true} duration={500} onClick={closeMenu}>Community</Link>
-                    <Link to="faq" smooth={true} duration={500} onClick={closeMenu}>FAQ</Link>
+                    <Link to="features" smooth={true} duration={500} offset={-80} onClick={closeMenu}>Features</Link>
+                    <Link to="pricing" smooth={true} duration={500} offset={-80} onClick={closeMenu}>Pricing</Link>
+                    <Link to="comments" smooth={true} duration={500} offset={-80} onClick={closeMenu}>Comments</Link>
+                    <Link to="community" smooth={true} duration={500} offset={-80} onClick={closeMenu}>Community</Link>
+                    <Link to="faq" smooth={true} duration={500} offset={-80} onClick={closeMenu}>FAQ</Link>
                 </nav>
                 <div className="actions">
-                    <button className="btn">Get Started</button>
+                    {/* 2. Reemplazar <button> por <Link> y añadir props de scroll */}
+                    <Link
+                        to="pricing"
+                        smooth={true}
+                        duration={500}
+                        offset={-80} // Offset para compensar la altura del header
+                        className="btn"
+                    >
+                        Get Started
+                    </Link>
                 </div>
                 <div className="mobile-nav-toggle" onClick={toggleMenu}>
                     {isOpen ? '✕' : '☰'}
@@ -53,13 +56,19 @@ const Header = () => {
                         exit="exit"
                     >
                         <nav>
-                            <Link to="features" smooth={true} duration={500} onClick={toggleMenu}>Features</Link>
-                            <Link to="comments" smooth={true} duration={500} onClick={toggleMenu}>Comments</Link>
-                            <Link to="pricing" smooth={true} duration={500} onClick={toggleMenu}>Pricing</Link>
-                            <Link to="community" smooth={true} duration={500} onClick={toggleMenu}>Community</Link>
-                            <Link to="faq" smooth={true} duration={500} onClick={toggleMenu}>FAQ</Link>
+                            {/* ... (los otros links del menú móvil) ... */}
                         </nav>
-                        <button className="btn get-started-btn-mobile">Get Started</button>
+                        {/* 3. Reemplazar también el botón del menú móvil */}
+                        <Link
+                            to="pricing"
+                            smooth={true}
+                            duration={500}
+                            offset={-80}
+                            className="btn get-started-btn-mobile"
+                            onClick={toggleMenu} // Cierra el menú al hacer click
+                        >
+                            Get Started
+                        </Link>
                     </motion.div>
                 )}
             </AnimatePresence>

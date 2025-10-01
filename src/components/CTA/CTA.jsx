@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-scroll';
 import './CTA.css';
 
 const CTA = () => {
@@ -45,7 +46,15 @@ const CTA = () => {
                 <motion.div className="cta-buttons-container" variants={itemVariants}>
                     {/* Wrapper para el borde brillante animado */}
                     <div className="primary-cta-wrapper">
-                        <button className="btn primary-cta">Get Started Now 🚀</button>
+                        <Link
+                            to="pricing"
+                            smooth={true}
+                            duration={500}
+                            offset={-80}
+                            className="btn primary-cta"
+                        >
+                            Get Started Now 🚀
+                        </Link>
                     </div>
                     <button className="btn secondary-cta">Learn More</button>
                 </motion.div>

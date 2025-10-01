@@ -148,7 +148,15 @@
     width: 100%;
     margin-top: auto;
     cursor: pointer;
-    /* Se pega al final */
+}
+
+.plan-name,
+.plan-price,
+.divider,
+.features-list,
+.pricing-btn {
+    position: relative;
+    /* <-- AÑADE ESTA LÍNEA AQUÍ */
 }
 
 /* --- Media Queries --- */

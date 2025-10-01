@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-scroll';
 import './Hero.css';
 
 // --- ACTUALIZADO: Importa tus nuevas imágenes aquí ---
@@ -67,7 +68,15 @@ const Hero = () => {
                             CliffBot IA helps your business deliver instant, personalized, and scalable customer support with AI-driven chatbots.
                         </p>
                         <div className="hero-cta-buttons">
-                            <button className="btn">Get Started Now</button>
+                            <Link
+                                to="pricing"
+                                smooth={true}
+                                duration={500}
+                                offset={-80}
+                                className="btn"
+                            >
+                                Get Started Now
+                            </Link>
                             <button className="btn btn-secondary">See How It Works</button>
                         </div>
                     </motion.div>
